@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Repairing List</title>
+</head>
+<body>
+    <h2>Repairing List</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Date Added</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for repairing in repairings %}
+            <tr>
+                <td>{{ repairing.product.name }}</td>
+                <td>{{ repairing.description }}</td>
+                <td>{{ repairing.status }}</td>
+                <td>{{ repairing.date_added }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

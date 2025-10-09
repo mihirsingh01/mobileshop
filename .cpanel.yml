@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/hrms.itechgurusolution.xyz/mobileshop.itechgurusolution.xyz/
+    - /bin/cp -R * $DEPLOYPATH

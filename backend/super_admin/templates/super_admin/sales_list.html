@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sales List</title>
+</head>
+<body>
+    <h2>Sales List</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Total Price</th>
+                <th>Date Sold</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for sale in sales %}
+            <tr>
+                <td>{{ sale.product.name }}</td>
+                <td>{{ sale.quantity }}</td>
+                <td>{{ sale.total_price }}</td>
+                <td>{{ sale.date_sold }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
