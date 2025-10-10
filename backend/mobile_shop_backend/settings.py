@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-o6hp$zfvwj4yqk()^@@c+w(_djlq7*w6*-2c35143u#xxr%yiw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['mobileshop.itechgurusolution.xyz']
+ALLOWED_HOSTS = ['mobileshop.itechgurusolution.xyz', 'localhost', '127.0.0.1']
 
 
 # Application definition

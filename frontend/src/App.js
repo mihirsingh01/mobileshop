@@ -86,6 +86,18 @@ function Customer() {
 }
 
 function App() {
+  const endpoints = [
+    'logins',
+    'super_admin',
+    'accessories_staff',
+    'repairing_staff',
+    'old_mobile_staff',
+    'promoter_staff',
+    'cashier',
+    'sales',
+    'customer',
+  ];
+
   return (
     <Router>
       <div>
