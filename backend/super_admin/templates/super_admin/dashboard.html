@@ -4,12 +4,16 @@
     <title>Super Admin Dashboard</title>
 </head>
 <body>
-    <h1>Shop Management Dashboard</h1>
+    <h1>Super Admin Dashboard</h1>
     <ul>
-        <li><a href="{% url 'sales_list' %}">Sales</a></li>
-        <li><a href="{% url 'repairing_list' %}">Repairing</a></li>
+        <li><a href="{% url 'sales_list' %}">Sales List</a></li>
+        <li><a href="{% url 'sales_add' %}">Add Sale</a></li>
+        <li><a href="{% url 'repairing_list' %}">Repairing List</a></li>
+        <li><a href="{% url 'repairing_add' %}">Add Repairing</a></li>
         <li><a href="{% url 'staff_attendance' %}">Staff Attendance</a></li>
-        <li><a href="{% url 'cash_collect' %}">Collect All Cash</a></li>
+        <li><a href="{% url 'staff_payroll' %}">Staff Payroll</a></li>
+        <li><a href="{% url 'staff_add' %}">Add Staff</a></li>
+        <li><a href="{% url 'cash_collect' %}">Cash Collection</a></li>
         <li><a href="{% url 'report_sales' %}">Sales Report</a></li>
         <li><a href="{% url 'report_purchase' %}">Purchase Report</a></li>
     </ul>

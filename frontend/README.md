@@ -1,18 +1,44 @@
-# React Frontend for Mobile Shop Management
+# Frontend React App for Mobile Shop Management
 
-This folder will contain the React frontend application for the mobile shop management system.
+This is the React frontend application for the Mobile Shop Management system.
 
-The frontend will interact with the Django backend APIs for login, super admin panel, and other staff functionalities.
+## Setup
 
-## Setup Instructions
+1. Navigate to the frontend directory:
+```
+cd frontend
+```
 
-1. Ensure you have Node.js and npm installed.
-2. Run `npx create-react-app .` inside this folder to initialize the React app.
-3. Develop components and pages corresponding to the backend apps.
-4. Use axios or fetch to communicate with the Django backend APIs.
+2. Install dependencies:
+```
+npm install
+```
+
+3. Start the development server:
+```
+npm start
+```
+
+The app will be available at `http://localhost:3000`.
+
+## Structure
+
+- The app will have navigation for the following sections:
+  - Logins
+  - Super Admin
+  - Accessories Staff
+  - Repairing Staff
+  - Old Mobile Staff
+  - Promoter Staff
+  - Cashier
+  - Sales
+  - Customer
 
 ## Next Steps
 
-- Create React components for Login, Super Admin Dashboard, and other staff roles.
-- Implement routing using React Router.
-- Connect frontend forms and views to backend APIs.
+- Implement React components and pages for each section.
+- Connect frontend with backend APIs.
+- Implement authentication and authorization.
+- Add UI/UX improvements.
+
+Happy coding!

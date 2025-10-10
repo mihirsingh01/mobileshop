@@ -1,35 +1,65 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
-def dashboard(request):
-    return HttpResponse("Super Admin Dashboard")
+@login_required
+def dashboard_view(request):
+    return render(request, 'super_admin/dashboard.html')
 
-def sales_list(request):
-    return HttpResponse("Sales List")
+@login_required
+def sales_list_view(request):
+    sales = Sale.objects.all()
+    return render(request, 'super_admin/sales_list.html', {'sales': sales})
 
-def sales_add(request):
-    return HttpResponse("Add Sale")
+@login_required
+def sales_add_view(request):
+    if request.method == 'POST':
+        # Implement adding sales logic here
+        pass
+    return render(request, 'super_admin/sales_add.html')
 
-def repairing_list(request):
-    return HttpResponse("Repairing List with filter options")
+@login_required
+def repairing_list_view(request):
+    repairings = Repairing.objects.all()
+    return render(request, 'super_admin/repairing_list.html', {'repairings': repairings})
 
-def repairing_add(request):
-    return HttpResponse("Add Repairing")
+@login_required
+def repairing_add_view(request):
+    if request.method == 'POST':
+        # Implement adding repairing logic here
+        pass
+    return render(request, 'super_admin/repairing_add.html')
 
-def staff_attendance(request):
-    return HttpResponse("Staff Attendance")
+@login_required
+def staff_attendance_view(request):
+    staffs = Staff.objects.all()
+    return render(request, 'super_admin/staff_attendance.html', {'staffs': staffs})
 
-def staff_payroll(request):
-    return HttpResponse("Staff Payroll")
+@login_required
+def staff_payroll_view(request):
+    staffs = Staff.objects.all()
+    return render(request, 'super_admin/staff_payroll.html', {'staffs': staffs})
 
-def staff_add(request):
-    return HttpResponse("Add Staff")
+@login_required
+def staff_add_view(request):
+    if request.method == 'POST':
+        # Implement adding staff logic here
+        pass
+    return render(request, 'super_admin/staff_add.html')
 
-def cash_collect(request):
-    return HttpResponse("Collect All Cash")
+@login_required
+def cash_collect_view(request):
+    if request.method == 'POST':
+        # Implement cash collection logic here
+        pass
+    return render(request, 'super_admin/cash_collect.html')
 
-def report_sales(request):
-    return HttpResponse("Sales Report")
+@login_required
+def report_sales_view(request):
+    # Implement sales report logic here
+    return render(request, 'super_admin/report_sales.html')
 
-def report_purchase(request):
-    return HttpResponse("Purchase Report")
+@login_required
+def report_purchase_view(request):
+    # Implement purchase report logic here
+    return render(request, 'super_admin/report_purchase.html')
