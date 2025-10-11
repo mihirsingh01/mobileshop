@@ -1,16 +1,32 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-
-function Home() {
-  return <h2>Welcome to Mobile Shop Management</h2>;
-}
-
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { fetchData } from './ApiClient';
+import Layout from './layouts/Layout';
+import DataTable from './components/DataTable';
 
 function Home() {
-  return <h2>Welcome to Mobile Shop Management</h2>;
+  return (
+    <div className="max-w-4xl mx-auto">
+      <div className="bg-white shadow-lg rounded-lg p-8 text-center">
+        <h1 className="text-4xl font-bold text-gray-800 mb-4">Welcome to Mobile Shop Management</h1>
+        <p className="text-lg text-gray-600">Manage your mobile shop operations efficiently with our comprehensive dashboard.</p>
+        <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="bg-blue-100 p-4 rounded-lg">
+            <h3 className="text-xl font-semibold text-blue-800">Staff Management</h3>
+            <p className="text-blue-600">Oversee all staff roles and activities.</p>
+          </div>
+          <div className="bg-green-100 p-4 rounded-lg">
+            <h3 className="text-xl font-semibold text-green-800">Sales Tracking</h3>
+            <p className="text-green-600">Monitor sales and customer data.</p>
+          </div>
+          <div className="bg-purple-100 p-4 rounded-lg">
+            <h3 className="text-xl font-semibold text-purple-800">Admin Controls</h3>
+            <p className="text-purple-600">Full administrative access.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 function Logins() {
@@ -18,7 +34,7 @@ function Logins() {
   useEffect(() => {
     fetchData('logins').then(setData);
   }, []);
-  return <div><h2>Logins</h2><pre>{JSON.stringify(data, null, 2)}</pre></div>;
+  return <DataTable data={data} title="Logins" />;
 }
 
 function SuperAdmin() {
@@ -26,7 +42,7 @@ function SuperAdmin() {
   useEffect(() => {
     fetchData('super_admin').then(setData);
   }, []);
-  return <div><h2>Super Admin</h2><pre>{JSON.stringify(data, null, 2)}</pre></div>;
+  return <DataTable data={data} title="Super Admin" />;
 }
 
 function AccessoriesStaff() {
@@ -34,7 +50,7 @@ function AccessoriesStaff() {
   useEffect(() => {
     fetchData('accessories_staff').then(setData);
   }, []);
-  return <div><h2>Accessories Staff</h2><pre>{JSON.stringify(data, null, 2)}</pre></div>;
+  return <DataTable data={data} title="Accessories Staff" />;
 }
 
 function RepairingStaff() {
@@ -42,7 +58,7 @@ function RepairingStaff() {
   useEffect(() => {
     fetchData('repairing_staff').then(setData);
   }, []);
-  return <div><h2>Repairing Staff</h2><pre>{JSON.stringify(data, null, 2)}</pre></div>;
+  return <DataTable data={data} title="Repairing Staff" />;
 }
 
 function OldMobileStaff() {
@@ -50,7 +66,7 @@ function OldMobileStaff() {
   useEffect(() => {
     fetchData('old_mobile_staff').then(setData);
   }, []);
-  return <div><h2>Old Mobile Staff</h2><pre>{JSON.stringify(data, null, 2)}</pre></div>;
+  return <DataTable data={data} title="Old Mobile Staff" />;
 }
 
 function PromoterStaff() {
@@ -58,7 +74,7 @@ function PromoterStaff() {
   useEffect(() => {
     fetchData('promoter_staff').then(setData);
   }, []);
-  return <div><h2>Promoter Staff</h2><pre>{JSON.stringify(data, null, 2)}</pre></div>;
+  return <DataTable data={data} title="Promoter Staff" />;
 }
 
 function Cashier() {
@@ -66,7 +82,7 @@ function Cashier() {
   useEffect(() => {
     fetchData('cashier').then(setData);
   }, []);
-  return <div><h2>Cashier</h2><pre>{JSON.stringify(data, null, 2)}</pre></div>;
+  return <DataTable data={data} title="Cashier" />;
 }
 
 function Sales() {
@@ -74,7 +90,7 @@ function Sales() {
   useEffect(() => {
     fetchData('sales').then(setData);
   }, []);
-  return <div><h2>Sales</h2><pre>{JSON.stringify(data, null, 2)}</pre></div>;
+  return <DataTable data={data} title="Sales" />;
 }
 
 function Customer() {
@@ -82,40 +98,13 @@ function Customer() {
   useEffect(() => {
     fetchData('customer').then(setData);
   }, []);
-  return <div><h2>Customer</h2><pre>{JSON.stringify(data, null, 2)}</pre></div>;
+  return <DataTable data={data} title="Customer" />;
 }
 
 function App() {
-  const endpoints = [
-    'logins',
-    'super_admin',
-    'accessories_staff',
-    'repairing_staff',
-    'old_mobile_staff',
-    'promoter_staff',
-    'cashier',
-    'sales',
-    'customer',
-  ];
-
   return (
     <Router>
-      <div>
-        <nav>
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/logins">Logins</Link></li>
-            <li><Link to="/super_admin">Super Admin</Link></li>
-            <li><Link to="/accessories_staff">Accessories Staff</Link></li>
-            <li><Link to="/repairing_staff">Repairing Staff</Link></li>
-            <li><Link to="/old_mobile_staff">Old Mobile Staff</Link></li>
-            <li><Link to="/promoter_staff">Promoter Staff</Link></li>
-            <li><Link to="/cashier">Cashier</Link></li>
-            <li><Link to="/sales">Sales</Link></li>
-            <li><Link to="/customer">Customer</Link></li>
-          </ul>
-        </nav>
-
+      <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/logins" element={<Logins />} />
@@ -128,7 +117,7 @@ function App() {
           <Route path="/sales" element={<Sales />} />
           <Route path="/customer" element={<Customer />} />
         </Routes>
-      </div>
+      </Layout>
     </Router>
   );
 }
