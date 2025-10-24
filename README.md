@@ -1,7 +1,7 @@
 Mobile Shop Inventory Management System
 A comprehensive, easy-to-use inventory and sales management system designed specifically for mobile phone and accessory shops. This application helps shop owners track products by IMEI, manage sales, handle purchases, monitor expenses, and generate insightful reports to streamline their business operations.
 
-(Replace this with a screenshot of your actual application's dashboard)
+
 
 ✨ Features
 📊 Interactive Dashboard: Get an at-a-glance overview of key business metrics like total sales, stock value, low-stock alerts, and recent transactions.
