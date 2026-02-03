@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import SaleCollection
 from django.http import HttpResponse
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
 @login_required
 def sales_collection_list(request):

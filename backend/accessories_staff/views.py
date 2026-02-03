@@ -4,6 +4,8 @@ from django.utils import timezone
 from .models import Attendance, Product, Sale
 from django.contrib.auth.models import User
 from django.http import HttpResponse
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
 @login_required
 def punch_in_view(request):
@@ -60,3 +62,8 @@ def add_sale_view(request):
 def sales_list_view(request):
     sales = Sale.objects.all()
     return render(request, 'accessories_staff/sales_list.html', {'sales': sales})
+
+@api_view(['GET'])
+def api_list(request):
+    products = Product.objects.all().values()
+    return Response(list(products))
